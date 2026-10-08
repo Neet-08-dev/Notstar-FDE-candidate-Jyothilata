@@ -35,3 +35,11 @@ services:
     profiles: ["evals"]
     depends_on:
       agent: {condition: service_healthy}
+  candidate-evals:
+    build: .
+    command: ["python", "-m", "evals.run", "--agent-url", "http://agent:8000", "--api-url", "http://mock-api:8001"]
+    environment:
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-local-development-only}
+    profiles: ["evals"]
+    depends_on:
+      agent: {condition: service_healthy}

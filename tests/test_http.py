@@ -60,7 +60,9 @@ class HTTPIsolationTests(unittest.TestCase):
     def test_starter_uses_injected_session_without_mutating(self):
         session = self.session()
         output = process({'api_url': self.url, 'session_token': session['session_token'], 'request': {'id': 'x', 'subject': 'help', 'body': 'Do work'}, 'run_id': 'x'})
-        self.assertEqual(output['status'], 'error')
+        # The placeholder starter returned 'error' here. The finished agent asks what the requester wants.
+        # The point of this test is unchanged: use the injected session, write nothing, leak no token.
+        self.assertEqual(output['status'], 'needs_clarification')
         snapshot = request_json(self.url + '/admin/sessions/' + session['session_id'] + '/snapshot', token='test-admin-private')
         self.assertEqual([e['tool'] for e in snapshot['audit']], ['get_context', 'get_policy'])
         self.assertNotIn(session['session_token'], str(output))
