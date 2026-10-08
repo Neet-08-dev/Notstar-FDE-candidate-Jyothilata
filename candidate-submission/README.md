@@ -1,9 +1,9 @@
 # Submission
 
 - **Candidate identifier:** Jyotilata Mili
-- **Repository and exact commit:** [repo URL] at commit [full commit SHA]
-- **Actual time spent:** 10 hours . The recommended timebox was 6 + 2.
-- **How it was built:** I directed the build and verified it. An AI assistant help me to write most of the code under my direction. Details are in `AI_BUILD_LOG.md`.
+- **Repository and exact commit:** https://github.com/Neet-08-dev/Notstar-FDE-candidate-Jyothilata, latest commit on `main`. The exact commit SHA is given in my submission email.
+- **Actual time spent:** about 10 hours. The recommended timebox was 6 + 2.
+- **How it was built:** I directed the build and verified it. An AI assistant wrote most of the code under my direction. Details are in `AI_BUILD_LOG.md`.
 
 ## Start command and health check
 
@@ -38,6 +38,8 @@ python -m evals.run --category injection
 python -m unittest discover -s tests -v
 ```
 
+On Windows, add `--agent-url http://127.0.0.1:8000 --api-url http://127.0.0.1:8001` to the eval commands. Using `localhost` adds a one to two second delay to every call.
+
 With Docker:
 
 ```
@@ -66,8 +68,9 @@ No model cost and no external access. The agent only talks to the `api_url` give
 - New tickets get a generic summary. The customer's own description is not stored.
 - The customer's account status is not checked.
 - If a pending approval already exists for the same invoice and amount, it is reported instead of creating a second request.
+- Idempotency keys include the request ID. A request ID longer than about 100 characters would push a key past the API's 160-character limit and the action would fail. The standard UUID request IDs are well within it.
 - The eval cases and the agent come from the same author and the same AI tool. There is no independent held-out set (see `EVALS.md`).
-- Docker: [write "run and passing" or "not tested in Docker"]
+- Docker: not tested on my machine (Docker is not installed). The Dockerfile is unchanged and the agent has no extra dependencies. The compose file is validated by the repository's GitHub check.
 
 ## Ten-minute demo plan
 

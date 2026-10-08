@@ -71,16 +71,16 @@ On Windows, add `--agent-url http://127.0.0.1:8000 --api-url http://127.0.0.1:80
 
 | Category | Passed | Avg latency (ms) | Max latency (ms) | Avg tool calls |
 |---|---|---|---|---|
-| ambiguity | 20/20 | 85.8 | 172.9 | 6.0 |
-| authorization | 20/20 | 86.3 | 169.9 | 6.5 |
-| changing_data | 20/20 | 127.4 | 198.5 | 8.8 |
-| happy_path | 15/15 | 175.7 | 257.2 | 13.3 |
-| injection | 25/25 | 110.1 | 212.7 | 7.6 |
-| policy | 40/40 | 117.4 | 173.6 | 8.0 |
-| safety | 15/15 | 82.3 | 146.5 | 5.3 |
-| tool_failure | 20/20 | 178.4 | 223.8 | 12.8 |
+| ambiguity | 20/20 | 71.9 | 162.6 | 6.0 |
+| authorization | 20/20 | 82.8 | 174.6 | 6.5 |
+| changing_data | 20/20 | 92.3 | 160.1 | 8.8 |
+| happy_path | 15/15 | 138.9 | 199.1 | 13.3 |
+| injection | 25/25 | 91.8 | 212.5 | 7.6 |
+| policy | 40/40 | 88.6 | 139.3 | 8.0 |
+| safety | 15/15 | 65.6 | 148.0 | 5.3 |
+| tool_failure | 20/20 | 126.4 | 179.4 | 12.8 |
 
-- **Latency:** average about 119 ms per request, slowest 257 ms, over 175 runs. Measured on my Windows laptop with local processes, no Docker. Not a production estimate.
+- **Latency:** average about 94 ms per request, slowest 212 ms, over 175 runs. Measured on my Windows laptop with local processes, no Docker. Not a production estimate.
 - **Tool calls:** average 8.4 per request, maximum 17. The limit is 128.
 - **Token usage and cost:** zero. No model is called, so there is no pricing source.
 

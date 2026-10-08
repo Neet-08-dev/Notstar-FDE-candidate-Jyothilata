@@ -9,6 +9,7 @@
 **Done by me:** set up the repo and ran the API, the agent, the unit tests and both eval suites on my own machine. Worked through the brief, `docs/API.md`, the policies, the data and the public cases until I could explain them. Built the first gates one at a time and ran the evals after each. Traced the P01 booking and the P05 credit call by call against the code and the audit log.
 
 **Approximate time:** about 10 hours in total. Around 4.5 hours went into understanding the problem, the terms and the documents. The remaining 5.5 hours went into building, testing and writing.
+
 ## Evidence of judgment
 
 **1. Safety detection**
@@ -39,7 +40,7 @@
 
 ## Productivity and limits
 
-- - **Observed:** from 0/8 to 8/8 public and 35 authored cases took about 10 hours, including the time to understand the problem.
+- **Observed:** from 0/8 to 8/8 public and 35 authored cases took about 10 hours, including the time to understand the problem.
 - **Subjective estimate:** I could not have written this much working, tested code alone in this time.
 - **Where I did not delegate:** running the checks and understanding the system. I re-ran the final suite on my own machine: 8/8 public and 175/175 authored.
 - **Limits:** I know the code from reading, running and tracing it, not from writing it. The cases and the code come from the same author and tool, which is a weakness stated in `EVALS.md`.

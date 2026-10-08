@@ -82,8 +82,8 @@ Safety comes before identity because a hazard matters whoever reports it. Identi
 
 ## Time spent and tradeoffs
 
-- **Actual time:** aprox 10 hours
+- **Actual time:** about 10 hours
 - **How it was built:** I directed the build and verified it. An AI assistant wrote most of the code under my direction (see `AI_BUILD_LOG.md`).
 - **Deferred:** a model for reading messages, cancel and reschedule, several units per request, site timezones, an independent held-out test set.
 - **Tradeoffs:** rules instead of a model (repeatable and free, but less language coverage). Scoped search before every read (about two extra calls, but no cross-customer attempt). Generic ticket summaries (no untrusted text stored, but less detail for the technician).
-- **At 800 requests/day:** about 33 per hour, which one instance handles easily at roughly 120 ms per request on my laptop. What changes is operations: stored logs, a dashboard of outcomes by category, an alert on any failed safety escalation, a review queue for handoffs and questions, and the eval suite run on every policy or code change.
+- **At 800 requests/day:** about 33 per hour, which one instance handles easily at roughly 95 ms per request on my laptop. What changes is operations: stored logs, a dashboard of outcomes by category, an alert on any failed safety escalation, a review queue for handoffs and questions, and the eval suite run on every policy or code change.
